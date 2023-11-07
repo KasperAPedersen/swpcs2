@@ -12,6 +12,8 @@ It's recommended to view the website on a second monitor while playing to gain t
 5. (OPTIONAL) Change the websites port @ config.js - line 4.
 6. (OPTIONAL) Change the bots nickname @ config.js - line 5.
 7. Run the following command ``` sudo node app.js ```
+* The website can be found at localhost:3000/smokes (unless the port is changed)
+
 
 ## Swoopais CS2 Smoke Bot Commands
 * [help] - Prints the help page.
