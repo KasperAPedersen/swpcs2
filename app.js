@@ -22,7 +22,10 @@ app.get('/:id', (req, res) => {
 // -- Steam
 
 function login(){
-    if(config.username == undefined || config.password == undefined) return;
+    if(config.username == undefined || config.password == undefined) {
+        console.log("[!] Invalid steam account details!");
+        return;
+    }
     client.logOn({"accountName": config.username, "password": config.password});
 }
 
