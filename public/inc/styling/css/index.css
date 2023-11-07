@@ -1,0 +1,32 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    color: #fff;
+}
+
+body {
+    background-color: #161719;
+}
+
+#swp {
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+#swp>h2, #swp>p {
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+#swp>#spotPictures {
+    width: 100%;
+    margin-top: 15px;
+}
+
+#swp>#spotPictures>img {
+    width: calc((100% / 2) - 30px);
+    margin: 15px;
+}
