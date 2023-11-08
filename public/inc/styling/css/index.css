@@ -15,6 +15,7 @@ body {
     height: 500px;
 }
 
-.spotCard>img {
+img {
     width: 100%;
+    width: 100px;
 }
