@@ -4,3 +4,8 @@ module.exports = {
     usePort: 3000,
     nickname: "SWP CS2"
 }
+
+/*
+swoopsy045:.Z#w2/zfvyWxZLdS
+swoopsy046:SW'~77*vum`+74k`
+*/
