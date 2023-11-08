@@ -13,6 +13,7 @@ function getSettings() {
     let tmp = "The current settings is:\n";
     tmp += `Map: ${settings.map}\n`;
     tmp += `Team: ${settings.team}`;
+    tmp += "\n - Swoopai | swoopai.dk";
     return tmp;
 }
 
@@ -25,6 +26,7 @@ function getSmokes() {
     tmp+= "\nOverpass:\n"
     for(let spot of spots.overpass) tmp += `[${spot[1]}] - (${spot[0]}) ${spot[2]}\n`;
 
+    tmp += "\n - Swoopai | swoopai.dk";
     return tmp;
 }
 
@@ -36,7 +38,7 @@ function getHelp() {
     tmp += "[.mirage] - Changes map to mirage\n";
     tmp += "[.overpass] - Changes map to overpass\n";
 
-    tmp += "\n- Swoopai";
+    tmp += "\n- Swoopai | swoopai.dk";
     return tmp;
 }
 

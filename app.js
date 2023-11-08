@@ -14,7 +14,7 @@ app.use(express.static('public'));
 app.listen(config.usePort, (err) => {
     console.log(err ? err : `[~] Listening on port ${config.usePort}`);
     bot.login();
-    setTitle("SWP CS2");
+    setTitle("SWP CS2 - swoopai.dk");
 })
 
 app.get('/smokes', (req, res) => {
