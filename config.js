@@ -3,8 +3,9 @@ module.exports = {
     password: ".Z#w2/zfvyWxZLdS",
     usePort: 3000,
     nickname: "SWP CS2",
-    autoLogin: true,
-    url: `http://localhost`
+    autoLogin: false,
+    url: `http://localhost`,
+    refreshTimer: 5000
 }
 
 /*

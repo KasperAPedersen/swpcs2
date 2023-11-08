@@ -1,5 +1,5 @@
 module.exports = {
-    current: ["Ticketbox", "Jumpthrow", "inc/styling/images/tt.jpg", "inc/styling/images/tmp_aim.jpg", "Stand here", "Right click throw"],
+    current: ["Ticketbox", "Jump throw", "inc/styling/images/tt_to_ticketbox_pos.jpg", "inc/styling/images/tt_to_ticketbox_aim.jpg", "Stand here", "Jump throw"],
     
     // ["TEAM", "NAME", "DESC", "VIEW NAME", "VIEW DESC", "PIC", "PIC", "POS", "ACTION"]
     mirage: [

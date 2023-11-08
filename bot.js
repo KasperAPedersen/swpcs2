@@ -16,10 +16,9 @@ module.exports = {
 function login(){
     if(!config.autoLogin) {
         rl.question('Enter username: ', (uname) => {
-            if (uname == undefined) exit(0);
-            if (uname == "1") client.logOn({"accountName": config.username, "password": config.password});
+            if (uname == undefined) return;
             rl.question('Enter password: ', (pword) => {
-                if (pword == undefined) exit(0);
+                if (pword == undefined) return;
                 client.logOn({"accountName": uname, "password": pword});
             })
         })
@@ -42,7 +41,6 @@ client.on('error', (err) => {
 
 client.on('disconnected', (eRes, msg) => {
     console.log(`[~] ${msg}`);
-    
 })
 
 client.on('friendOrChatMessage', (sID, msg, room) => {
@@ -74,7 +72,12 @@ client.on('friendOrChatMessage', (sID, msg, room) => {
             client.chat.sendFriendMessage(sID, "Map has been set to 'overpass'");
             break;
         default:
-            client.chat.sendFriendMessage(sID, func.setSmoke(msg.toLowerCase()) ? "The requested smoke has been set!" : "The requested smoke coulnd't be found!");
+            let tmp = msg.split(' ');
+            if (tmp[0] == ".timer") {
+                client.chat.sendFriendMessage(sID, func.setTimer(tmp[1]) ? `Refresh timer has been set to ${tmp[1]}!` : "Something went wrong while setting the refresh timer!");
+            }  else {
+                client.chat.sendFriendMessage(sID, func.setSmoke(msg.toLowerCase()) ? "The requested smoke has been set!" : "The requested smoke coulnd't be found!");
+            }
             break;
     }
 })

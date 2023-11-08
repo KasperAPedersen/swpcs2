@@ -6,13 +6,20 @@ module.exports = {
     getSettings,
     getSmokes,
     getHelp,
-    setSmoke
+    setSmoke,
+    setTimer
+}
+
+function setTimer(time){
+    config.refreshTimer = Number(time);
+    return true;
 }
 
 function getSettings() {
     let tmp = "The current settings is:\n";
     tmp += `Map: ${settings.map}\n`;
-    tmp += `Team: ${settings.team}`;
+    tmp += `Team: ${settings.team}\n`;
+    tmp += `Refresh Timer: ${config.refreshTimer}`;
     tmp += "\n - Swoopai | swoopai.dk";
     return tmp;
 }
@@ -37,6 +44,7 @@ function getHelp() {
     tmp += "[.tt] - Changes team to terrorist\n[.ct] - Changes team to counter-terrorist\n";
     tmp += "[.mirage] - Changes map to mirage\n";
     tmp += "[.overpass] - Changes map to overpass\n";
+    tmp += "[.timer <time>] - Sets how often the website should refresh (in MS)\n";
 
     tmp += "\n- Swoopai | swoopai.dk";
     return tmp;
