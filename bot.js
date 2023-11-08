@@ -13,14 +13,18 @@ module.exports = {
 }
 
 function login(){
-    rl.question('Enter username: ', (uname) => {
-        if (uname == undefined) exit(0);
-        if (uname == "1") client.logOn({"accountName": config.username, "password": config.password});
-        rl.question('Enter password', (pword) => {
-            if (pword == undefined) exit(0);
-            client.logOn({"accountName": uname, "password": pword});
+    if(!config.autoLogin) {
+        rl.question('Enter username: ', (uname) => {
+            if (uname == undefined) exit(0);
+            if (uname == "1") client.logOn({"accountName": config.username, "password": config.password});
+            rl.question('Enter password', (pword) => {
+                if (pword == undefined) exit(0);
+                client.logOn({"accountName": uname, "password": pword});
+            })
         })
-    })
+    } else {
+        client.logOn({"accountName": config.username, "password": config.password});
+    }
     /*
     if(config.username == undefined || config.password == undefined) {
         console.log("[!] Invalid steam account details!");
