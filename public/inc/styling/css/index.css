@@ -12,4 +12,9 @@ body {
 
 .spotCard {
     width: calc(100% / 2);
+    height: 500px;
+}
+
+.spotCard>img {
+    width: 100%;
 }

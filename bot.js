@@ -31,6 +31,7 @@ function login(){
 client.on('loggedOn', (details, parental) => {
     console.log(`[~] Logged into ${config.username} as ${config.nickname}`);
     client.setPersona(steamUser.EPersonaState.Online, config.nickname);
+    client.gamesPlayed("Swoopai.dk");
     exec(`start ${config.url}:${config.usePort}/smokes`);
 })
 
