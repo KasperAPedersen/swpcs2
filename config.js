@@ -1,9 +1,9 @@
 module.exports = {
-    username: "",
-    password: "",
+    username: "swoopsy045",
+    password: ".Z#w2/zfvyWxZLdS",
     usePort: 3000,
     nickname: "SWP CS2",
-    autoLogin: false,
+    autoLogin: true,
     url: `http://localhost`,
-    refreshTimer: 5000
+    refreshTimer: 1000
 }
