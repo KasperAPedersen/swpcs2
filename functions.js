@@ -58,7 +58,7 @@ function setSmoke(req) {
     for(let spot of cSpots) {
         if (req == spot[1] && settings.team == spot[0]) {
             isFound = true;
-            spots.current = [spot[3], spot[4], spot[5], spot[6]];
+            spots.current = [spot[3], spot[4], spot[5], spot[6], spot[7], spot[8]];
             break;
         }
     }
