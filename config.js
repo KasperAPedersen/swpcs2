@@ -7,3 +7,4 @@ module.exports = {
     url: `http://localhost`,
     refreshTimer: 1000
 }
+

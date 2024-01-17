@@ -3,6 +3,7 @@ let config = require('./config.js');
 let spots = require('./spots.js');
 let func = require('./functions.js');
 //
+let steamServerQuery = require('steam-server-query');
 const { exec } = require('child_process');
 let readline = require('readline');
 let rl = readline.createInterface(process.stdin, process.stdout);
@@ -31,7 +32,6 @@ client.on('loggedOn', (details, parental) => {
     console.log(`[~] Logged into ${config.username} as ${config.nickname}`);
     client.setPersona(steamUser.EPersonaState.Online, config.nickname);
     client.gamesPlayed("Swoopai.dk");
-    exec(`start ${config.url}:${config.usePort}/smokes`);
 })
 
 client.on('error', (err) => {
@@ -45,7 +45,27 @@ client.on('disconnected', (eRes, msg) => {
 
 client.on('friendOrChatMessage', (sID, msg, room) => {
     console.log(`[~] Message from ${sID} - ${msg}`);
-    switch(msg.toLowerCase()) {
+    let tmpMsg = msg.split(' ');
+    switch(tmpMsg[0].toLowerCase()) {
+        case "dayz":
+            let tmpMsg = msg.split(' ');
+            if (tmpMsg[1] == "server") {
+                if(tmpMsg[2] != undefined) settings.server = tmpMsg[2];
+            } else if (tmpMsg[1] == "port") {
+                if(tmpMsg[2] != undefined) settings.port = tmpMsg[2];
+            } else if (tmpMsg[1] == "show") {
+                client.chat.sendFriendMessage(sID, `Server IP: ${settings.server}\nServer Port: ${settings.port}`);
+            } else {
+                steamServerQuery.queryGameServerInfo(`${settings.server}:${settings.port}`).then(infoResponse => {
+                    client.chat.sendFriendMessage(sID, `${infoResponse.name}\n${infoResponse.map}\n${infoResponse.players}/${infoResponse.maxPlayers}`);
+                }).catch((err) => {
+                    client.chat.sendFriendMessage(sID, "Weren't able to query the server.");
+                });
+            }
+            break;
+        case "web":
+            exec(`start ${config.url}:${config.usePort}/smokes`);
+            break;
         case "help":
             client.chat.sendFriendMessage(sID, func.getHelp());
             break;
