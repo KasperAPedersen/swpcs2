@@ -33,6 +33,9 @@ function getSmokes() {
     tmp+= "\nOverpass:\n"
     for(let spot of spots.overpass) tmp += `[${spot[1]}] - (${spot[0]}) ${spot[2]}\n`;
 
+    tmp+= "\nAnubis:\n"
+    for(let spot of spots.anubis) tmp += `[${spot[1]}] - (${spot[0]}) ${spot[2]}\n`;
+
     tmp += "\n - Swoopai | swoopai.dk";
     return tmp;
 }
@@ -44,6 +47,7 @@ function getHelp() {
     tmp += "[.tt] - Changes team to terrorist\n[.ct] - Changes team to counter-terrorist\n";
     tmp += "[.mirage] - Changes map to mirage\n";
     tmp += "[.overpass] - Changes map to overpass\n";
+    tmp += "[.anubis] - Changes map to anubis\n";
     tmp += "[.timer <time>] - Sets how often the website should refresh (in MS)\n";
 
     tmp += "\n- Swoopai | swoopai.dk";
@@ -60,6 +64,9 @@ function setSmoke(req) {
             break;
         case "overpass":
             cSpots = spots.overpass;
+            break;
+        case "anubis":
+            cSpots = spots.anubis;
             break;
         default:
             return false;

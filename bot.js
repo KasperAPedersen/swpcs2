@@ -91,6 +91,10 @@ client.on('friendOrChatMessage', (sID, msg, room) => {
             settings.map = "overpass";
             client.chat.sendFriendMessage(sID, "Map has been set to 'overpass'");
             break;
+        case ".anubis":
+            settings.map = "anubis";
+            client.chat.sendFriendMessage(sID, "Map has been set to 'anubis'");
+            break;
         default:
             let tmp = msg.split(' ');
             if (tmp[0] == ".timer") {
